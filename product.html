@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Product</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css
+">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- font aweson -->
+<link rel="stylesheet" type="text/css" href="'https://kit.fontawesome.com/42deadbeef.js'">
+
+<style type="text/css">
+  .col-4 img{
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 205px;
+    padding: 10px;
+    display: block;
+  }
+  #btn{
+    font-size: 15px;
+  }
+  body{
+    background: linear-gradient(120deg,#2980b9,#8e44ad);
+  }
+  .search-icon{
+    position: absolute;
+    z-index: 10;
+    right: 49%;
+    top: 20px;
+    color: blue;
+  }
+
+
+</style>
+</head>
+<body>
+  <div ng-app="Product" ng-controller="procontroller">
+	<nav class="navbar navbar-expand-lg fixed-top" style="font-size: 17px; background-color: blue; color: white;">
+    <div class="container">
+      <img src="images/vs.jpg" style="width: 30px; height: 30px;">
+      <p style="color: white;"><b>VShop</b></p>
+    <button class="navbar-toggler"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav justify-content-center">
+        <li class="nav-item active">
+          <a class="nav-link active" aria-current="page" href="home.html" style="color:white;">Home</a>
+        </li>
+        <li class="nav-item dropdown ml-2" style="color:white;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size:17px; color: black;">
+            <li><a class="dropdown-item" href="use.html">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">Whish list</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex col-5">
+        <input class="form-control col-lg-10" ng-model="searchpro" name="searchpro" placeholder="Search for Products" aria-label="Search">
+        <span class="fas fa-search search-icon"></span>
+        </form>
+      </div>
+          <ul class="nav navbar-nav navbar-right" >
+           <li style="color:white;"><a  href="wish.html"><i  id="wlink"class="far fa-heart" style="color:white">Wishlist</i></a>
+    </li>
+            <li><a href="card.html"><span class="fa fa-shopping-cart" style="color:white;">Cart {{noofelement}}</a></span>
+            </li>
+           </ul>
+        </div>
+      </nav><br><br><br>
+      <div class="container" style="padding-top: 5%; font-size: 17px; background-color: white;">
+        <div class="row row-cols-3" style="padding-left: 4%;">
+            <div class="product-item" ng-repeat='p in pro |filter: searchpro'>
+                <a href="display.html"> <img ng-src={{p.pimg}} ></img> 
+                <div>{{p.name}}</div>
+                <div>{{p.price | currency: '₹'}}</div></a>
+                <button id="btn" ng-click=cart(p.id) class="btn btn-outline-success">Add to Cart</button>
+                <button id="btn" ng-click=wish(p.id) class="btn btn-outline-success"><i class="fas fa-heart"></i>Whishlist</button><br><br>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <br><br>
+<!-- Footer -->
+<footer class="page-footer font- blue pt-4" style="font-size: 14px; background-color:black; color: white;">
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase"><b>Registered Office Address:</b></h5>
+        <p>VShop Internet Private Limited,<br>Buildings Alyssa, Begonia &<br> Clove Embassy Tech Village,<br> Outer Ring Road, Devarabeesanahalli Village,<br>Bengaluru, 560103,<br>Karnataka, India<br> CIN : U51109KA2012PTC066107<br>
+        Telephone: 1800 202 9898</p>
+
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Social</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://www.facebook.com">Facebook</a>
+          </li>
+          <li>
+            <a href="https://twitter.com">Twitter</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/">YouTube</a>
+          </li>
+        </ul>
+
+      </div>
+     <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">ABOUT</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Contact Us</a>
+          </li>
+          <li>
+            <a href="#!">About Us</a>
+          </li>
+          <li>
+            <a href="#!">Security</a>
+          </li>
+          <li>
+            <a href="#!">Privacy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://flipkart.com/"> Flipkart.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+          
+      </body>
+      <script type="text/javascript">
+        var app= angular.module("Product",[]);
+        app.controller("procontroller",function($scope){
+          $scope.pro=[{'id':0, 'name':'realme Narzo 30', price: 12499,'pimg':'images/p2.jpeg'},
+          {'id':1,'name':'realme C21',price:8499,'pimg':'images/p1.jpeg'},
+          {'id':3,'name':'realme 8 5G',price: 14499,'pimg':'images/p3.jpeg'},
+          {'id':4,'name':'OPPO A53',price: 13990,'pimg':'images/p4.jpeg'},
+          {'id':5,'name':'OPPO A12 ',price:8990,'pimg':'images/p5.jpeg'},
+          {'id':6,'name':'SAMSUNG S20 FE 5G',price:56990,'pimg':'images/p6.jpeg'},
+          {'id':7,'name':'REDMI 9i',price: 8299,'pimg':'images/p7.jpeg'},
+          {'id':8,'name':'SAMSUNG Galaxy F41',price:15999,'pimg':'images/p9.jpeg'},
+          {'id':9,'name':'Mi 11 Lite',price: 21999,'pimg':'images/p8.jpeg'},
+          {'id':10,'name':'OPPO A12 ',price:8990,'pimg':'images/p5.jpeg'}];
+
+          
+          $scope.wishdata=[];
+          
+     
+          // $scope.cartno=0;
+          $scope.cartdata=[];
+
+          $scope.cart=function($index){
+            if(JSON.parse(localStorage.getItem('cartdata')) == null){
+              $scope.i=$scope.cartdata.indexOf($index);
+              if($scope.i != -1)
+              {
+                alert("Product already in the cart")
+              }
+              else
+              {
+                $scope.remov = false
+                $scope.cartdata.push($index)
+                $scope.pro[$index].quantity = 1
+                $scope.noofelement=$scope.cartdata.length
+                localStorage.setItem('cartdata', JSON.stringify($scope.cartdata))
+                localStorage.setItem('noofelement',$scope.noofelement)
+              }
+            }
+            else{
+              $scope.cartdata=JSON.parse(localStorage.getItem('cartdata'))
+              $scope.i = $scope.cartdata.indexOf($index)
+              if($scope.i != -1)
+              {
+                alert("Product already in the cart")
+              }
+              else
+              {
+                $scope.remov = false
+                $scope.cartdata.push($index)
+                $scope.noofelement=$scope.cartdata.length
+                localStorage.setItem('cartdata', JSON.stringify($scope.cartdata))
+                localStorage.setItem('noofelement',$scope.noofelement)             
+              }
+            }
+          }
+
+          $scope.wish = function($index){
+
+        if(JSON.parse(localStorage.getItem('wish')) == null)
+        {
+          $scope.i = $scope.wishdata.indexOf($index)
+          if($scope.i != -1)
+          {
+            alert("Item Wishlisted")
+          }
+          else
+          {
+            $scope.wishdata.push($index)
+            localStorage.setItem('wish', JSON.stringify($scope.wishdata))
+          }
+        }
+
+        else
+        {
+          $scope.wishdata = JSON.parse(localStorage.getItem('wish'))
+          $scope.i = $scope.wishdata.indexOf($index)
+          if($scope.i != -1)
+          {
+            alert("allredy in your wishlist")
+          }
+          else
+          {
+            $scope.wishdata.push($index)
+            localStorage.setItem('wish', JSON.stringify($scope.wishdata))
+          }
+        }
+      }
+
+          localStorage.setItem('prod', JSON.stringify($scope.pro));
+          localStorage.setItem('cartdata', JSON.stringify($scope.cartdata));
+          
+                 
+        });
+
+</script>
+</html>

@@ -1,0 +1,58 @@
+/*.container {
+	margin-top: 50px;*/
+}
+body{
+	font-size: 17px;
+}
+
+.row{
+	width: 90%;
+	height: 80vh;
+	margin: auto;
+
+}
+
+
+.carousel-item img{
+	height: 85vh;
+	width: 80vh;
+	margin-bottom: 11px;
+	cursor: pointer;
+}
+
+.price{
+	color: blue;
+	font-size: 26px;
+	font-weight: bold;
+	padding-top: 20px ;
+}
+
+input{
+	border: 1px solid #ccc;
+	font-weight: bold;
+	height: 33px;
+	text-align: center;
+	width: 40px;
+	font-size: 17px;
+}
+
+h2{
+	color: blue;
+}
+
+.stars{
+	height: 40px;
+	width: 100px;
+}
+
+#pro{
+	padding-top: 2%;
+}
+
+.search-icon{
+    position: absolute;
+    z-index: 10;
+    right: 45%;
+    top: 20px;
+    color: blue;
+  }

@@ -1,0 +1,37 @@
+.corousel-item{
+	height: 70vh;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.carousel-inner img{
+	height: 80vh;
+	width: 100px;
+}
+
+.dropdown-item{
+	font-size: 15px;
+}
+
+.col-4 img{
+	height: 400px;
+
+}
+.login button{
+	text-align: left;
+}
+.nav-item active a{
+	/*display: block;*/
+	padding: 15px;
+	font-size: 17px;
+	color: blue;
+	
+}
+.search-icon{
+    position: absolute;
+    z-index: 10;
+    right: 48%;
+    top: 20px;
+    color: blue;
+  }
